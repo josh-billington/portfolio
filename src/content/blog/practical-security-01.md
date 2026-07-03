@@ -3,9 +3,6 @@ title: "Don't let your dependencies manage you"
 description: 'Practical Security 01'
 pubDate: 'Jun 16 2026'
 ---
-
-Don’t let your dependencies manage you
-
 You’ve released your first product with the help of Cursor, Codex, or Claude Code. You’ve nailed the launch, you’ve got first paying customers, and suddenly you’re hit with a dreaded security incident… 
 
 There’s no doubt that it’s faster and more productive to use these tools to build and launch your product, internal tool, or customer project. But how do you do that while ensuring that the code you ship isn’t riddled with vulnerabilities? 
