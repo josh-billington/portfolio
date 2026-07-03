@@ -43,9 +43,9 @@ And then follow the specific workflow instructions to add it to your repository.
 
 For npm specifically, I’d recommend a few additional steps: 
 
-1. Adding npm audit audit-level=high to your deployment pipeline (if you’re using Github Actions - you’d create a workflow file in .github/workflows/<your file name>)
+1. Adding `npm audit --audit-level=high` to your deployment pipeline (if you’re using Github Actions - you’d create a workflow file in .github/workflows/<your file name>)
 2. Commit your package-lock.json file and ensure that your deployment pipeline always uses npm ci
-3. To resolve npm package updates utilize npm audit fix
+3. Use `npm audit fix` to automatically resolve fixable vulnerabilities
 
 ## Prioritization
 
