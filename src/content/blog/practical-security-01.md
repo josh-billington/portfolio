@@ -7,7 +7,7 @@ You’ve released your first product with the help of Cursor, Codex, or Claude C
 
 There’s no doubt that it’s faster and more productive to use these tools to build and launch your product, internal tool, or customer project. But how do you do that while ensuring that the code you ship isn’t riddled with vulnerabilities? 
 
-Most security advice tosses around words like “zero trust architecture” or assume you have dedicated application security expertise. This is the first in a series of posts on the practical side of developing secure software. For transparency, I’m not an application security expert. These are the practical security principles that I learned and am taking forward from my time at Arctic Wolf.
+Most security advice tosses around words like “zero trust architecture” or assumes you have dedicated application security expertise. This is the first in a series of posts on the practical side of developing secure software. For transparency, I’m not an application security expert. These are the practical security principles that I learned and am taking forward from my time at Arctic Wolf.
 
 The examples will be based on npm, but the principles are transferable to other ecosystems. 
 
@@ -56,8 +56,8 @@ This flowchart is designed to help you quickly categorize issues using severity,
 Key outcomes: 
 
 * P0: should be fixed right now 
-* P1: should be addressed with 1 - 2 weeks 
-* P2: plan created to address with 1 - 3 months 
+* P1 - P2: should be addressed with 1 - 2 weeks 
+* P3: plan created to address with 1 - 3 months 
 * P4: accept risk, document the vulnerability and monitor
 
 ![Vulnerability prioritization flowchart](../../assets/images/prioritization-flowchart.png)
@@ -67,13 +67,13 @@ Key outcomes:
 The key to keeping your product, customer projects, and internal tools secure is consistency. If at 0, here’s where I’d start: 
 
 * Run npm audit on your current project (bonus points for running Snyk CLI)
-* Look up your top 5-10 dependencies on https://security.snyk.io.
+* Look up your top 5-10 dependencies on https://security.snyk.io
 * Set up Dependabot and CodeQL on GitHub
 * Share the prioritization tree with your team
 
 Measure progress by tracking: 
 
-* Number of known vulnerabilties 
+* Number of known vulnerabilities
 * % of dependencies that are up to date
 * How long it takes from discovering a vulnerability to fixing it 
 
