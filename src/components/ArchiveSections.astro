@@ -1,0 +1,23 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import PostList from './PostList.astro';
+
+interface Props {
+	writingPosts: CollectionEntry<'blog'>[];
+	projectPosts: CollectionEntry<'blog'>[];
+}
+
+const { writingPosts, projectPosts } = Astro.props;
+---
+
+<section id="writing">
+	<h2 class="section-heading">Writing</h2>
+	<p>My thoughts on user experience, products, and modern development</p>
+	<PostList posts={writingPosts} emptyMessage="No writing yet." />
+</section>
+
+<section class="section--spaced" id="projects">
+	<h2 class="section-heading">Projects</h2>
+	<p>Things I've built, out of curiosity and professionally</p>
+	<PostList posts={projectPosts} emptyMessage="No projects yet." />
+</section>

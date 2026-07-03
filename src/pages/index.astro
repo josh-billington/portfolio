@@ -1,0 +1,79 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import PostList from '../components/PostList.astro';
+import { LINKEDIN_URL, SITE_DESCRIPTION, SITE_TITLE, X_URL } from '../consts';
+import { getCollection } from 'astro:content';
+import { sortPostsByDate, splitPostsByType } from '../utils/posts';
+
+const posts = sortPostsByDate(await getCollection('blog'));
+const { writing: writingPosts, projects: projectPosts } = splitPostsByType(posts);
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<main>
+			<section>
+				<div class="intro-header">
+					<div>
+						<h1 class="page-title">Josh Billington</h1>
+						<h2 class="page-subtitle">Software Engineer</h2>
+					</div>
+					<div class="social-icons">
+						<a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+							<svg viewBox="0 0 24 24" aria-hidden="true">
+								<path
+									fill="currentColor"
+									d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.124 2.062 2.062 0 0 1 0 4.124zM7.119 20.452H3.555V9h3.564v11.452z"
+								></path>
+							</svg>
+						</a>
+						<a href={X_URL} target="_blank" rel="noopener noreferrer" aria-label="X">
+							<svg viewBox="0 0 24 24" aria-hidden="true">
+								<path
+									fill="currentColor"
+									d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"
+								></path>
+							</svg>
+						</a>
+					</div>
+				</div>
+				<div class="intro-text">
+					<p>
+						The people I've worked with describe me as "user-obsessed", "having fantastic
+						instincts for frontend dev", and "my go-to-guy for all my Javascript related
+						questions".
+					</p>
+					<p>
+						In recent history, I worked on Managed Awareness at{' '}
+						<a href="https://arcticwolf.com" target="_blank" rel="noopener noreferrer"
+							>Arctic Wolf</a
+						>. I'm currently looking for my next position, and working on{' '}
+						<a href="/blog/morley/">Morley</a>.
+					</p>
+				</div>
+			</section>
+
+			<section class="section--spaced" id="writing">
+				<div class="section-header">
+					<h2 class="section-heading">Writing</h2>
+					<a class="section-link" href="/blog#writing">View all</a>
+				</div>
+				<p>My thoughts on user experience, products, and modern development</p>
+				<PostList posts={writingPosts.slice(0, 3)} emptyMessage="No writing yet." />
+			</section>
+
+			<section class="section--spaced" id="projects">
+				<div class="section-header">
+					<h2 class="section-heading">Projects</h2>
+					<a class="section-link" href="/blog#projects">View all</a>
+				</div>
+				<p>Things I've built, out of curiosity and professionally</p>
+				<PostList posts={projectPosts.slice(0, 3)} emptyMessage="No projects yet." />
+			</section>
+		</main>
+	</body>
+</html>

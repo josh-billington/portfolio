@@ -1,0 +1,25 @@
+---
+import { getCollection } from 'astro:content';
+import ArchiveSections from '../../components/ArchiveSections.astro';
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import PostBreadcrumb from '../../components/PostBreadcrumb.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
+import { sortPostsByDate, splitPostsByType } from '../../utils/posts';
+
+const posts = sortPostsByDate(await getCollection('blog'));
+const { writing, projects } = splitPostsByType(posts);
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`Archive — ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<main class="main--archive">
+			<PostBreadcrumb title="Archive" />
+			<ArchiveSections writingPosts={writing} projectPosts={projects} />
+		</main>
+	</body>
+</html>
