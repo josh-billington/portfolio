@@ -75,6 +75,4 @@ Measure progress by tracking:
 
 * Number of known vulnerabilities
 * % of dependencies that are up to date
-* How long it takes from discovering a vulnerability to fixing it 
-
-Up next: Buy don’t build
+* How long it takes from discovering a vulnerability to fixing it
